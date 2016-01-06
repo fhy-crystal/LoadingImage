@@ -2,12 +2,24 @@
 <html>
 <head>
     <title></title>
-    <meta charset="utf-8">
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge"><!--IE8以上的版本以最高版本渲染-->
+    <meta name="viewport" content="width=device-width, initial-scale=1,maximum-scale=1"><!--在iPhone的浏览器中页面将以原始大小显示，并不允许缩放-->
+    <meta name="description" content="帮帮买官网"><!--搜索引擎能够找到-->
+    <meta name="format-detection" content="telephone=no"><!--手机打开网页电话号码是否为拨打链接-->
+    <meta name="renderer" content="webkit"><!--强制控制浏览器的兼容模式，webkit为极速模式，ie-comp兼容模式，ie-stand IE模式-->
+    <meta name="HandheldFriendly" content="True"><!--针对手持设备优化，主要是针对一些老的不识别viewport的浏览器，比如黑莓 -->
+    <meta name="MobileOptimized" content="320"><!-- <meta name="viewport" content="width=device-width, initial-scale=1,maximum-scale=1">-->
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="x5-fast-scroller" content="disable">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black"><!--在web app应用下状态条的颜色；default（白色），black（黑色）和black-translucent（灰色半透明）-->
+    <meta name="msapplication-TileImage" content="">
     <style type="text/css">
+        body{overflow: hidden;}
         .current a {font-size: 20px; } 
         .current {display: none; } 
         .over {position: absolute; top: 0; left: 0; width: 100%; height: 100%; background-color: #f5f5f5; opacity:0.5; z-index: 1000; }
-        #LoadingBar {position: absolute; /*top: 40%; left: 40%; width: 20%; height: 20%;*/ z-index: 1001; text-align:center;}
+        #LoadingBar {position: absolute; z-index: 1001; text-align:center;}
         #LoadingBar .bg{width: 100%;}
         .balloon1{width:2%;position: absolute;left:46%;top: 0;
             -webkit-animation: swing 2s ease-in-out 0s infinite alternate running;
@@ -16,12 +28,12 @@
             -o-animation: swing 2s ease-in-out 0s infinite alternate running;
             animation: swing 2s ease-in-out 0s infinite alternate running;
             }
-        
+        /*上下摆动动画1*/
         @-webkit-keyframes swing{from{top:23%;}to{top:25%;}}
         @-moz-keyframes swing{from{top:23%;}to{top:25%;}}
         @-ms-keyframes swing{from{top:23%;}to{top:25%;}}
         @-o-keyframes swing{from{top:23%;}to{top:25%;}}
-        @keyframs swing{from{top:23%;}to{top:25%;}}
+        @keyframes swing{from{top:23%;}to{top:25%;}}
 
         .balloon2{width:1%;position: absolute;left:74%;top: 0;
             -webkit-animation: aswing 1.5s ease-in-out 0s infinite alternate running;
@@ -30,11 +42,12 @@
             -o-animation: aswing 1.5s ease-in-out 0s infinite alternate running;
             animation: aswing 1.5s ease-in-out 0s infinite alternate running;
             }
+        /*上下摆动动画2*/
         @-webkit-keyframes aswing{from{top:17%;}to{top:19%;}}
         @-moz-keyframes aswing{from{top:17%;}to{top:19%;}}
         @-ms-keyframes aswing{from{top:17%;}to{top:19%;}}
         @-o-keyframes aswing{from{top:17%;}to{top:19%;}}
-        @keyframs aswing{from{top:17%;}to{top:19%;}}
+        @keyframes aswing{from{top:17%;}to{top:19%;}}
 
         .thanks{width:2%;position: absolute;left:70%;top: 0;
             -webkit-animation: tswing 2.5s ease-in-out 0s infinite alternate running;
@@ -43,11 +56,12 @@
             -o-animation: tswing 2.5s ease-in-out 0s infinite alternate running;
             animation: tswing 2.5s ease-in-out 0s infinite alternate running;
             }
+        /*上下摆动动画3*/
         @-webkit-keyframes tswing{from{top:30%;}to{top:34%;}}
         @-moz-keyframes tswing{from{top:30%;}to{top:34%;}}
         @-ms-keyframes tswing{from{top:30%;}to{top:34%;}}
         @-o-keyframes tswing{from{top:30%;}to{top:34%;}}
-        @keyframs tswing{from{top:30%;}to{top:34%;}}
+        @keyframes tswing{from{top:30%;}to{top:34%;}}
 
         .circle{width:2.5%;position: absolute;left: 55.5%;top: 29%;
             -webkit-animation: expand 2s ease-out 0s infinite normal running;
@@ -56,7 +70,7 @@
             -o-animation: expand 2s ease-out 0s infinite normal running;
             animation: expand 2s ease-out 0s infinite normal running;
         }
-
+        /*扩展渐变动画*/
         @-webkit-keyframes expand{from{opacity: 1;-webkit-transform:scale(1);}to{opacity: 0;-webkit-transform:scale(4);}}
         @-moz-keyframes expand{from{opacity: 1;-moz-transform:scale(1);}to{opacity: 0;-moz-transform:scale(4);}}
         @-ms-keyframes expand{from{opacity: 1;-ms-transform:scale(1);}to{opacity: 0;-ms-transform:scale(4);}}
@@ -70,16 +84,12 @@
             -o-animation: rotate 3s linear 0s infinite normal running;
             animation: rotate 3s linear 0s infinite normal running;
         }
-
+        /*旋转动画*/
         @-webkit-keyframes rotate{from{-webkit-transform:rotate(0deg);}to{-webkit-transform:rotate(360deg);}}
         @-moz-keyframes rotate{from{-moz-transform:rotate(0deg);}to{-moz-transform:rotate(360deg);}}
         @-ms-keyframes rotate{from{-ms-transform:rotate(0deg);}to{-ms-transform:rotate(360deg);}}
         @-o-keyframes rotate{from{-o-transform:rotate(0deg);}to{-o-transform:rotate(360deg);}}
         @keyframes rotate{from{transform:rotate(0deg);}to{transform:rotate(360deg);}}
-
-        
-        
-        
     </style>
     
     
@@ -97,6 +107,7 @@
     <div class="current" id="content" style="display:none"><a href="#">Loading</a></div>
     <script type="text/javascript" src="jquery-1.11.1.min.js"></script>
     <script type="text/javascript">
+        //loading 
         window.onload = setTimeout("initPage()",3000);
         function initPage()   
         {   
@@ -107,7 +118,46 @@
                 $("#LoadingBar,#over").fadeOut("slow");
                 $("#content").show();
             }
+            //以下是调用上面的函数
+            var mb = myBrowser();
+            if ("IE" == mb) {
+                alert("我是 IE");
+            }
+            if ("FF" == mb) {
+                alert("我是 Firefox");
+            }
+            if ("Chrome" == mb) {
+                alert("我是 Chrome");
+            }
+            if ("Opera" == mb) {
+                alert("我是 Opera");
+            }
+            if ("Safari" == mb) {
+                alert("我是 Safari");
+            }
         }
+        //判断浏览器类型
+        function myBrowser()
+        {
+            var userAgent = navigator.userAgent; //取得浏览器的userAgent字符串
+            var isOpera = userAgent.indexOf("Opera") > -1;
+            if (isOpera) {
+                return "Opera"
+            }; //判断是否Opera浏览器
+            if (userAgent.indexOf("Firefox") > -1) {
+                return "FF";
+            } //判断是否Firefox浏览器
+            if (userAgent.indexOf("Chrome") > -1){
+              return "Chrome";
+             }
+            if (userAgent.indexOf("Safari") > -1) {
+                return "Safari";
+            } //判断是否Safari浏览器
+            if (userAgent.indexOf("compatible") > -1 && userAgent.indexOf("MSIE") > -1 && !isOpera) {
+                return "IE";
+            }; //判断是否IE浏览器
+        }
+        
     </script>
 </body>
 </html>
